@@ -1,73 +1,49 @@
-name: 🔧 Weekly SEO & Sitemap Maintenance
+name: 🔧 Weekly Deep SEO & Maintenance
 
 on:
   schedule:
-    # Setiap Senin pukul 06:00 WITA (22:00 UTC Minggu)
-    - cron: '0 22 * * 0'
-  workflow_dispatch: # Bisa dijalankan manual juga
+    - cron: '0 23 * * 0'
+  workflow_dispatch:
 
 jobs:
-  update-sitemap:
-    name: Update Sitemap & SEO
+  weekly-deep-maintenance:
+    name: Weekly Deep SEO Audit & Fix
     runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
-      - name: ⬇️ Checkout repository
+      - name: ⬇️ Checkout
         uses: actions/checkout@v4
 
-      - name: 📅 Update sitemap lastmod dates
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 📦 Install dependencies
+        run: pip install anthropic requests --quiet
+
+      - name: 🔍 Deep SEO Audit + AI Fix
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python3 scripts/weekly_seo_audit.py
+
+      - name: 📅 Update All Dates
         run: |
           TODAY=$(date +%Y-%m-%d)
-          echo "Updating sitemap to date: $TODAY"
-          
-          # Update semua lastmod di sitemap.xml ke tanggal hari ini
           sed -i "s|<lastmod>[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}</lastmod>|<lastmod>$TODAY</lastmod>|g" sitemap.xml
-          
-          echo "✅ Sitemap updated!"
-          cat sitemap.xml
+          sed -i 's|"dateModified": "[0-9-]*"|"dateModified": "'"$TODAY"'"|g' index.html
+          for f in blog/*.html kta.html; do [ -f "$f" ] && sed -i 's|"dateModified": "[0-9-]*"|"dateModified": "'"$TODAY"'"|g' "$f"; done
+          echo "✅ All dates updated to $TODAY"
 
-      - name: 📝 Update index.html meta last-modified
+      - name: 📤 Commit Weekly Changes
         run: |
-          TODAY=$(date +%Y-%m-%d)
-          # Update lastmod di schema JSON-LD jika ada
-          if grep -q "dateModified" index.html; then
-            sed -i "s|\"dateModified\": \"[0-9-]*\"|\"dateModified\": \"$TODAY\"|g" index.html
-            echo "✅ index.html dateModified updated!"
-          else
-            echo "ℹ️ No dateModified field found in index.html"
-          fi
-
-      - name: 🔍 Validate sitemap
-        run: |
-          echo "=== Sitemap content preview ==="
-          head -30 sitemap.xml
-          echo ""
-          echo "=== URL count ==="
-          grep -c "<loc>" sitemap.xml || echo "0"
-
-      - name: 📤 Commit and push changes
-        run: |
-          git config user.name "github-actions[bot]"
+          git config user.name "🤖 Salut AI Bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-          git add sitemap.xml index.html
-          
-          # Only commit if there are changes
-          if git diff --staged --quiet; then
-            echo "ℹ️ No changes to commit"
-          else
-            TODAY=$(date +%Y-%m-%d)
-            git commit -m "🔧 Weekly maintenance: update sitemap & SEO [$TODAY]"
+          git add -A
+          if ! git diff --staged --quiet; then
+            git commit -m "🔧 Weekly Deep Maintenance [$(date +%Y-%m-%d)]"
             git push
-            echo "✅ Changes pushed to repository!"
           fi
-
-      - name: 🏁 Done
-        run: |
-          echo "=============================="
-          echo "✅ Weekly maintenance complete!"
-          echo "Website: https://salutetambetuah.id"
-          echo "Sitemap: https://salutetambetuah.id/sitemap.xml"
-          echo "=============================="
