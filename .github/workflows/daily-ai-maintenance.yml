@@ -55,7 +55,7 @@ jobs:
 
       - name: Update maintenance log
         run: |
-          printf "\n## %s (%s)\n- GBP content generated\n- Sitemap & dateModified updated\n" \
+          printf "\n## %s (%s)\n- Sitemap & dateModified updated\n" \
             "$(date +%Y-%m-%d)" "$(date +%A)" >> MAINTENANCE_LOG.md
 
       - name: Commit and push
@@ -63,10 +63,13 @@ jobs:
           git config user.name "Salut Bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          if ! git diff --staged --quiet; then
-            git commit -m "chore: daily update $(date +%Y-%m-%d)"
-            git pull --rebase origin main
-            git push origin main
-          else
-            echo "Nothing to commit"
-          fi
+          git diff --staged --quiet && echo "Nothing to commit" && exit 0
+          git diff --cached > /tmp/changes.patch
+          git fetch origin main
+          git reset --hard origin/main
+          git apply /tmp/changes.patch || true
+          git add -A
+          git diff --staged --quiet && echo "No changes after sync" && exit 0
+          git commit -m "chore: daily update $(date +%Y-%m-%d)"
+          git push origin main
+          echo "Push berhasil!"
