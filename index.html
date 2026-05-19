@@ -555,7 +555,7 @@ body{font-family:'Inter','Poppins',sans-serif;background:#F8FAFC;overflow-x:hidd
 .wa-float{position:fixed;right:16px;z-index:99;display:flex;flex-direction:column;align-items:flex-end;gap:8px;bottom:calc(68px + env(safe-area-inset-bottom) + 10px)}
 @media(min-width:1024px){.wa-float{bottom:24px;right:24px}}
 @keyframes pulse-wa{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}50%{box-shadow:0 0 0 12px rgba(37,211,102,0)}}
-.wa-float a.wa-circle{width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;animation:pulse-wa 2.5s infinite;box-shadow:0 6px 20px rgba(37,211,102,.4)}
+.wa-float a.wa-circle,.wa-float button.wa-circle{border:none;cursor:pointer;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;animation:pulse-wa 2.5s infinite;box-shadow:0 6px 20px rgba(37,211,102,.4)}
 .wa-float a{text-decoration:none}
 .kta-float-btn{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#0F172A,#1E3A8A);color:#FFD700;border-radius:22px;padding:9px 15px 9px 10px;font-size:12px;font-weight:800;letter-spacing:.03em;box-shadow:0 6px 20px rgba(15,23,42,.4),0 0 0 1px rgba(212,175,55,.25);transition:all .25s;white-space:nowrap}
 .kta-float-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(15,23,42,.5),0 0 0 2px rgba(212,175,55,.4)}
@@ -990,12 +990,12 @@ html { scroll-behavior: smooth; }
         <a href="/kta.html" style="display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#0F172A,#1E3A8A);color:#FFD700;font-size:11px;font-weight:700;padding:5px 12px;border-radius:99px;letter-spacing:.03em;border:1px solid rgba(212,175,55,.4);text-decoration:none;transition:all .2s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 18px rgba(15,23,42,.35)'" onmouseout="this.style.transform='';this.style.boxShadow=''">🪪 KTA</a>
       </div>
       <!-- CTA -->
-      <a href="https://wa.me/6282250638289?text=Halo%20Salut%20Etam%20Betuah%2C%20saya%20ingin%20konsultasi" target="_blank" rel="noopener"
+      <a href="#" onclick="openWAPicker('');return false;" target="_blank" rel="noopener"
          class="hidden sm:inline-flex items-center gap-1.5 bg-brand-yellow text-brand-navy text-xs font-bold px-4 py-2.5 rounded-full hover:bg-brand-yellow-dark transition-colors shadow-md">
         <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Hubungi Kami
       </a>
       <!-- Mobile: just logo + WA -->
-      <a href="https://wa.me/6282250638289" target="_blank" rel="noopener"
+      <a href="#" onclick="openWAPicker('');return false;" target="_blank" rel="noopener"
          class="sm:hidden inline-flex items-center gap-1 bg-brand-yellow text-brand-navy text-[11px] font-bold px-3.5 py-2 rounded-full">
         <i data-lucide="message-circle" class="w-3 h-3"></i> WA
       </a>
@@ -1074,7 +1074,7 @@ html { scroll-behavior: smooth; }
              style="display:inline-flex;align-items:center;gap:8px;background:#F59E0B;color:#0F172A;font-size:14px;font-weight:700;padding:14px 24px;border-radius:99px;text-decoration:none;box-shadow:0 8px 20px rgba(245,158,11,0.35);transition:all .2s">
             Lihat Layanan <i data-lucide="arrow-right" style="width:16px;height:16px"></i>
           </a>
-          <a href="https://wa.me/6282250638289?text=Halo%20Salut%20Etam%20Betuah%2C%20saya%20ingin%20konsultasi" target="_blank" rel="noopener"
+          <a href="#" onclick="openWAPicker('');return false;" target="_blank" rel="noopener"
              style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1.5px solid rgba(255,255,255,0.3);color:#ffffff;font-size:14px;font-weight:500;padding:14px 24px;border-radius:99px;text-decoration:none;transition:all .2s">
             <i data-lucide="message-circle" style="width:16px;height:16px;color:#FCD34D"></i> Chat WhatsApp
           </a>
@@ -1884,7 +1884,7 @@ html { scroll-behavior: smooth; }
       <h3 style="font-size:19px;font-weight:800;color:#ffffff;margin-bottom:14px">📚 Tentang Salut Etam Betuah</h3>
       <p style="font-size:13.5px;color:rgba(147,197,253,0.75);line-height:1.9;margin-bottom:14px"><strong style="color:#FCD34D">Salut Etam Betuah</strong> adalah Sentra Layanan Universitas Terbuka (SALUT) resmi yang beroperasi di Samarinda, Kalimantan Timur sejak tahun 2018. Kami melayani seluruh kebutuhan akademik mahasiswa <strong style="color:#FCD34D">UT Samarinda</strong> — dari pendaftaran mahasiswa baru, registrasi semester, pengambilan modul, pelayanan ujian, hingga pendaftaran wisuda.</p>
       <p style="font-size:13.5px;color:rgba(147,197,253,0.75);line-height:1.9;margin-bottom:14px">Bagi Anda yang mencari <strong style="color:#FCD34D">sentra layanan UT di Samarinda</strong> yang terpercaya, <strong style="color:#FCD34D">Salut Etam Betuah</strong> hadir dengan bukti nyata: <strong style="color:#FCD34D">rating 5.0★ di Google</strong>, lolos audit BDO internasional, dan ribuan mahasiswa yang telah lulus. Kami melayani mahasiswa dari Samarinda, Balikpapan, Kutai Kartanegara, Bontang, Berau, dan seluruh wilayah Kalimantan Timur, serta seluruh Indonesia.</p>
-      <p style="font-size:13.5px;color:rgba(147,197,253,0.75);line-height:1.9;margin:0">Dengan program RPL (Rekognisi Pembelajaran Lampau), <strong style="color:#FCD34D">Salut Etam Betuah</strong> membantu ASN, TNI, Polri, dan profesional berpengalaman mendapatkan gelar S1 dari Universitas Terbuka lebih cepat dan efisien. Hubungi kami sekarang di <a href="https://wa.me/6282250638289" style="color:#FBBF24;text-decoration:underline;font-weight:700">0822-5063-8289</a>.</p>
+      <p style="font-size:13.5px;color:rgba(147,197,253,0.75);line-height:1.9;margin:0">Dengan program RPL (Rekognisi Pembelajaran Lampau), <strong style="color:#FCD34D">Salut Etam Betuah</strong> membantu ASN, TNI, Polri, dan profesional berpengalaman mendapatkan gelar S1 dari Universitas Terbuka lebih cepat dan efisien. Hubungi kami sekarang di <a href="#" onclick="openWAPicker('');return false;" style="color:#FBBF24;text-decoration:underline;font-weight:700">0822-5063-8289</a>.</p>
     </div>
   </div>
 </section>
@@ -1957,7 +1957,7 @@ html { scroll-behavior: smooth; }
       <!-- Info -->
       <div class="reveal space-y-4">
         <!-- Quick contact cards -->
-        <a href="https://wa.me/6282250638289" target="_blank" rel="noopener"
+        <a href="#" onclick="openWAPicker('');return false;" target="_blank" rel="noopener"
            class="flex items-center gap-4 bg-white/08 border border-white/12 rounded-2xl p-4 hover:bg-white/12 transition-colors group">
           <div class="w-11 h-11 bg-green-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
             <i data-lucide="message-circle" class="w-5 h-5 text-green-400"></i>
@@ -2091,6 +2091,61 @@ html { scroll-behavior: smooth; }
   </div>
 </footer>
 
+<!-- ===== WA PICKER MODAL ===== -->
+<div id="wa-picker-overlay" onclick="closeWAPicker()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);backdrop-filter:blur(4px);z-index:99998;transition:opacity .2s"></div>
+<div id="wa-picker-modal" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;padding:0 12px 20px;max-width:420px;margin:0 auto">
+  <div style="background:#fff;border-radius:20px 20px 16px 16px;overflow:hidden;box-shadow:0 -4px 40px rgba(0,0,0,0.22)">
+    <!-- Header -->
+    <div style="background:linear-gradient(135deg,#16a34a,#15803d);padding:18px 20px 14px;position:relative">
+      <button onclick="closeWAPicker()" style="position:absolute;top:14px;right:16px;background:rgba(255,255,255,0.2);border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;line-height:1">×</button>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:36px;height:36px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center">
+          <svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <div>
+          <div style="color:#fff;font-weight:700;font-size:15px;line-height:1.2">Chat WhatsApp</div>
+          <div style="color:rgba(255,255,255,0.75);font-size:11.5px;margin-top:2px">Pilih admin yang ingin dihubungi</div>
+        </div>
+      </div>
+    </div>
+    <!-- Body -->
+    <div style="padding:16px 16px 8px">
+      <div id="wa-service-label" style="font-size:11.5px;color:#64748b;margin-bottom:12px;display:none">
+        💬 Tanya tentang: <strong id="wa-service-text" style="color:#0f172a"></strong>
+      </div>
+      <!-- Admin 1 -->
+      <button id="wa-btn-1" onclick="goWA(1)" style="width:100%;background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:14px;padding:14px 16px;cursor:pointer;text-align:left;margin-bottom:10px;display:flex;align-items:center;gap:12px;transition:all .15s">
+        <div style="width:44px;height:44px;background:linear-gradient(135deg,#16a34a,#15803d);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <span style="font-size:18px">👩</span>
+        </div>
+        <div style="flex:1;min-width:0">
+          <div style="font-weight:700;color:#0f172a;font-size:14px">Admin 1</div>
+          <div style="color:#16a34a;font-size:13px;font-weight:600;margin-top:1px">0822-5063-8289</div>
+          <div style="color:#64748b;font-size:11px;margin-top:2px">Layanan konsultasi</div>
+        </div>
+        <svg width="18" height="18" fill="none" stroke="#16a34a" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <!-- Admin 2 -->
+      <button id="wa-btn-2" onclick="goWA(2)" style="width:100%;background:#fffbeb;border:1.5px solid #fde68a;border-radius:14px;padding:14px 16px;cursor:pointer;text-align:left;margin-bottom:10px;display:flex;align-items:center;gap:12px;transition:all .15s">
+        <div style="width:44px;height:44px;background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <span style="font-size:18px">👨</span>
+        </div>
+        <div style="flex:1;min-width:0">
+          <div style="font-weight:700;color:#0f172a;font-size:14px">Admin 2</div>
+          <div style="color:#d97706;font-size:13px;font-weight:600;margin-top:1px">0852-5283-4986</div>
+          <div style="color:#64748b;font-size:11px;margin-top:2px">Layanan konsultasi</div>
+        </div>
+        <svg width="18" height="18" fill="none" stroke="#d97706" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <!-- Note -->
+      <div style="background:#f8fafc;border-radius:10px;padding:10px 12px;font-size:11.5px;color:#64748b;line-height:1.6;margin-bottom:8px;display:flex;gap:8px;align-items:flex-start">
+        <span style="font-size:14px;margin-top:-1px">💡</span>
+        <span>Kedua admin siap membantu. Silakan pilih salah satu untuk mulai konsultasi.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ===== WA FLOAT + KTA BUTTON (DESKTOP) ===== -->
 <div class="wa-float" aria-label="Tombol Cepat">
   <!-- Chatbot (atas) -->
@@ -2104,9 +2159,9 @@ html { scroll-behavior: smooth; }
     🪪 KTA
   </a>
   <!-- WA Circle -->
-  <a class="wa-circle" href="https://wa.me/6282250638289?text=Halo%20Salut%20Etam%20Betuah%2C%20saya%20ingin%20bertanya" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <button class="wa-circle" onclick="openWAPicker('')" aria-label="WhatsApp">
     <svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
+  </button>
 </div>
 
 <!-- BACK TO TOP -->
@@ -2127,12 +2182,12 @@ html { scroll-behavior: smooth; }
     <span class="bi-label">Layanan</span>
   </a>
   <!-- WA center -->
-  <a href="https://wa.me/6282250638289?text=Halo%20Salut%2C%20saya%20ingin%20konsultasi" target="_blank" rel="noopener" class="bnav-item wa-nav" aria-label="Chat WhatsApp">
+  <button onclick="openWAPicker('')" class="bnav-item wa-nav" aria-label="Chat WhatsApp">
     <div class="bnav-wa-btn">
       <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </div>
     <span class="bi-label text-green-600 font-bold" style="color:#16a34a">Chat WA</span>
-  </a>
+  </button>
   <a href="#blog" class="bnav-item" id="bn-blog" onclick="setNav('blog')">
     <i data-lucide="newspaper" class="w-5 h-5"></i>
     <span class="bi-label">Blog</span>
@@ -2176,10 +2231,36 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 3000);
 }
 
-function openWA(svc) {
-  const txt = encodeURIComponent('Halo Salut Etam Betuah, saya ingin tanya tentang: ' + svc);
-  window.open('https://wa.me/6282250638289?text=' + txt, '_blank');
+// ===== WA PICKER =====
+let _waSvc = '';
+function openWAPicker(svc) {
+  _waSvc = svc || '';
+  const overlay = document.getElementById('wa-picker-overlay');
+  const modal   = document.getElementById('wa-picker-modal');
+  const label   = document.getElementById('wa-service-label');
+  const svcText = document.getElementById('wa-service-text');
+  overlay.style.display = 'block';
+  modal.style.display   = 'block';
+  document.body.style.overflow = 'hidden';
+  if (svc) { label.style.display='block'; svcText.textContent=svc; }
+  else { label.style.display='none'; }
+  requestAnimationFrame(() => { overlay.style.opacity='1'; });
 }
+function closeWAPicker() {
+  document.getElementById('wa-picker-overlay').style.display='none';
+  document.getElementById('wa-picker-modal').style.display='none';
+  document.body.style.overflow='';
+}
+function goWA(admin) {
+  const nums = { 1:'6282250638289', 2:'6285252834986' };
+  const base = _waSvc
+    ? encodeURIComponent('Halo Salut Etam Betuah, saya ingin tanya tentang: ' + _waSvc)
+    : encodeURIComponent('Halo Salut Etam Betuah, saya ingin konsultasi');
+  closeWAPicker();
+  window.open('https://wa.me/' + nums[admin] + '?text=' + base, '_blank');
+}
+function openWA(svc) { openWAPicker(svc); }
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeWAPicker(); });
 
 // ===== NAV SCROLL =====
 const topnav = document.getElementById('topnav');
@@ -2359,7 +2440,7 @@ document.getElementById('kontak-form').addEventListener('submit', function(e) {
   let msg = `Halo Salut Etam Betuah,%0A%0ANama: ${encodeURIComponent(nama)}%0ANo. WA: ${encodeURIComponent(wa)}%0ALayanan: ${encodeURIComponent(layanan)}`;
   if (pesan) msg += `%0APesan: ${encodeURIComponent(pesan)}`;
   showToast('Mengarahkan ke WhatsApp...');
-  setTimeout(() => window.open('https://wa.me/6282250638289?text=' + msg, '_blank'), 600);
+  setTimeout(() => openWAPicker(decodeURIComponent(msg.replace('Halo Salut Etam Betuah, saya ingin tanya tentang: ',''))), 600);
   this.reset();
 });
 
@@ -2463,7 +2544,7 @@ document.querySelectorAll('.counter').forEach(el => cntObs.observe(el));
     // SALAM
     { keys: ['halo','hai','hi','pagi','siang','sore','malam','apa kabar','assalam'], answer: 'Halo! 👋 Saya Asisten <b>Salut Etam Betuah</b>. Ada yang bisa saya bantu?\n• 📝 Cara daftar kuliah UT\n• 💰 Biaya kuliah & keanggotaan\n• 🎓 Program studi tersedia\n• 🪪 Kartu Tanda Anggota (KTA)\n• 🤝 Keuntungan mitra\n• 📍 Lokasi & jam buka' },
     // PENDAFTARAN
-    { keys: ['daftar','mendaftar','pendaftaran','register','masuk','cara kuliah','mulai kuliah','bergabung'], answer: '📝 <b>Cara Daftar Kuliah UT via Salut:</b>\n\n1️⃣ Hubungi admin WA: <a href="https://wa.me/6282250638289" target="_blank" class="underline text-amber-300">0822 5063 8289</a>\n2️⃣ Siapkan: KTP, ijazah, foto 3x4, email aktif\n3️⃣ Pilih jalur:\n   • <b>Non-RPL</b> (lulusan SMA/SMK)\n   • <b>RPL</b> (D3/S1/pengalaman kerja)\n4️⃣ Bayar biaya registrasi & SPP\n5️⃣ Akses e-learning & mulai belajar!\n\n✅ Proses mudah, dibantu admin sampai selesai.' },
+    { keys: ['daftar','mendaftar','pendaftaran','register','masuk','cara kuliah','mulai kuliah','bergabung'], answer: '📝 <b>Cara Daftar Kuliah UT via Salut:</b>\n\n1️⃣ Hubungi admin WA: <a href="#" onclick="openWAPicker('');return false;" target="_blank" class="underline text-amber-300">0822 5063 8289</a>\n2️⃣ Siapkan: KTP, ijazah, foto 3x4, email aktif\n3️⃣ Pilih jalur:\n   • <b>Non-RPL</b> (lulusan SMA/SMK)\n   • <b>RPL</b> (D3/S1/pengalaman kerja)\n4️⃣ Bayar biaya registrasi & SPP\n5️⃣ Akses e-learning & mulai belajar!\n\n✅ Proses mudah, dibantu admin sampai selesai.' },
     // BIAYA
     { keys: ['biaya','harga','spp','bayar','tarif','cicil','berapa','murah'], answer: '💰 <b>Biaya Kuliah UT:</b>\n\n• Rp 1.500.000 – 3.500.000/semester\n• Tergantung program studi\n• Bisa <b>cicil via Bank BTN</b> (khusus anggota Salut)\n\n🪪 <b>Keanggotaan Salut Etam Betuah:</b>\n• Rp 500.000/semester\n• Dapat KTA + akses semua fasilitas + diskon mitra\n\nIngin simulasi biaya? Chat WA kami!' },
     // KTA / KARTU ANGGOTA
@@ -2471,13 +2552,13 @@ document.querySelectorAll('.counter').forEach(el => cntObs.observe(el));
     // MITRA / KEUNTUNGAN
     { keys: ['mitra','keuntungan','diskon','benefit','fasilitas','hotel','daihatsu','btn'], answer: '🤝 <b>5 Mitra Eksklusif Salut Etam Betuah:</b>\n\n1. 🏦 <b>Bank BTN</b> — Cicil SPP/UKT tanpa ribet\n2. 🏨 <b>GK Hotel Samarinda</b> — Diskon kamar, restoran & cafe\n3. 🏨 <b>Quest Hotel Balikpapan</b> — Diskon 30% menginap (By Aston)\n4. 🌴 <b>Senyiur Hotels & Resorts</b> — Diskon staycation & dinner\n5. 🚗 <b>TMS Daihatsu Samarinda</b> — Hemat 50% biaya servis\n\nTunjukkan KTA untuk klaim semua benefit!' },
     // RPL
-    { keys: ['rpl','alih kredit','pindah','d3','pengakuan'], answer: '🔄 <b>RPL (Rekognisi Pembelajaran Lampau)</b>\n\nCocok untuk:\n• Lulusan D3 ingin lanjut S1\n• Pindahan dari kampus lain\n• Profesional berpengalaman\n• Anggota TNI/Polri/ASN\n\n✅ Matkul yang sudah ditempuh <b>diakui, tidak perlu ulang</b>\n✅ Hemat waktu & biaya\n✅ Tetap dapat ijazah resmi UT\n\nKonsultasi RPL: <a href="https://wa.me/6282250638289" target="_blank" class="underline text-amber-300">WA 0822 5063 8289</a>' },
+    { keys: ['rpl','alih kredit','pindah','d3','pengakuan'], answer: '🔄 <b>RPL (Rekognisi Pembelajaran Lampau)</b>\n\nCocok untuk:\n• Lulusan D3 ingin lanjut S1\n• Pindahan dari kampus lain\n• Profesional berpengalaman\n• Anggota TNI/Polri/ASN\n\n✅ Matkul yang sudah ditempuh <b>diakui, tidak perlu ulang</b>\n✅ Hemat waktu & biaya\n✅ Tetap dapat ijazah resmi UT\n\nKonsultasi RPL: <a href="#" onclick="openWAPicker('');return false;" target="_blank" class="underline text-amber-300">WA 0822 5063 8289</a>' },
     // PRODI / JURUSAN
     { keys: ['prodi','jurusan','program studi','fakultas','ambil','pilih'], answer: '🎓 <b>Program Studi Populer di UT Samarinda:</b>\n\n<b>FHISIP:</b> Ilmu Hukum, Adm. Negara, Ilmu Komunikasi, Sosiologi\n<b>FEB:</b> Manajemen, Akuntansi, Ekonomi Pembangunan\n<b>FKIP:</b> PGSD, PG-PAUD, Matematika, Bahasa Indonesia\n<b>FST:</b> Agribisnis, Teknik Informatika, Statistika\n\n✅ Semua akreditasi A/B dari BAN-PT\n✅ Setara + FIBAA Internasional\n✅ Valid untuk CPNS, BUMN, melanjutkan S2' },
     // SISTEM KULIAH
     { keys: ['sistem','online','kuliah','jarak','belajar','e-learning','modul'], answer: '💻 <b>Sistem Kuliah UT (Jarak Jauh):</b>\n\n• Belajar mandiri via <b>e-learning</b> & modul PDF\n• Tidak perlu hadir setiap hari\n• Cocok untuk yang sudah bekerja\n• Ada <b>Tutorial Online (Tuton)</b> & Tutorial Tatap Muka (TTM)\n• Ujian tiap akhir semester (UAS)\n• Nilai dari tugas + ujian\n\nFleksibel 100% — kuliah dari mana saja! 🌏' },
     // TUTORIAL / BIMBEL
-    { keys: ['tutorial','bimbel','ttm','tuton','bimbingan','belajar bareng'], answer: '📚 <b>Layanan Tutorial Salut Etam Betuah:</b>\n\n• <b>TTM (Tutorial Tatap Muka)</b> — Belajar kelompok tatap muka\n• <b>Tuton (Tutorial Online)</b> — Diskusi online di platform UT\n• <b>Bimbingan Belajar</b> — Sesi khusus persiapan ujian\n• <b>Pendampingan skripsi/TAP</b>\n\n🕒 Jadwal fleksibel sesuai kebutuhan\n📞 Hubungi: <a href="https://wa.me/6282250638289" target="_blank" class="underline text-amber-300">0822 5063 8289</a>' },
+    { keys: ['tutorial','bimbel','ttm','tuton','bimbingan','belajar bareng'], answer: '📚 <b>Layanan Tutorial Salut Etam Betuah:</b>\n\n• <b>TTM (Tutorial Tatap Muka)</b> — Belajar kelompok tatap muka\n• <b>Tuton (Tutorial Online)</b> — Diskusi online di platform UT\n• <b>Bimbingan Belajar</b> — Sesi khusus persiapan ujian\n• <b>Pendampingan skripsi/TAP</b>\n\n🕒 Jadwal fleksibel sesuai kebutuhan\n📞 Hubungi: <a href="#" onclick="openWAPicker('');return false;" target="_blank" class="underline text-amber-300">0822 5063 8289</a>' },
     // UJIAN
     { keys: ['ujian','uas','tap','skripsi','nilai','remedial'], answer: '📋 <b>Info Ujian UT:</b>\n\n• <b>UAS</b> — Ujian Akhir Semester (offline/online)\n• <b>TAP</b> — Tugas Akhir Program (pengganti skripsi S1)\n• Ujian biasanya Juni & Desember\n• Nilai: Tuton (30%) + UAS (70%)\n• Ada ujian remedi jika tidak lulus\n\nSalut membantu persiapan ujian & pendaftaran TAP!' },
     // WISUDA / IJAZAH
@@ -2489,7 +2570,7 @@ document.querySelectorAll('.counter').forEach(el => cntObs.observe(el));
     // JAM BUKA
     { keys: ['jam','buka','tutup','operasional','hari'], answer: '🕒 <b>Jam Operasional:</b>\n\nSenin–Sabtu: <b>08.30–17.00 WITA</b>\nMinggu: Tutup (WhatsApp tetap aktif)\n\n💬 WA 24 jam, respons dalam <b>5 menit</b>!' },
     // KONTAK
-    { keys: ['kontak','whatsapp','nomor','hubungi','admin','telp','email'], answer: '📞 <b>Kontak Salut Etam Betuah:</b>\n\nAdmin 1: <a href="https://wa.me/6282250638289" target="_blank" class="underline text-amber-300">0822-5063-8289</a>\nAdmin 2: <a href="https://wa.me/6285252834986" target="_blank" class="underline text-amber-300">0852-5283-4986</a>\nEmail: bestuahsalutetam@gmail.com\nWebsite: salutetambetuah.id\n\nInstagram/TikTok/YouTube: <b>@salutetambetuah</b>' },
+    { keys: ['kontak','whatsapp','nomor','hubungi','admin','telp','email'], answer: '📞 <b>Kontak Salut Etam Betuah:</b>\n\nAdmin 1: <a href="#" onclick="openWAPicker('');return false;" target="_blank" class="underline text-amber-300">0822-5063-8289</a>\nAdmin 2: <a href="https://wa.me/6285252834986" target="_blank" class="underline text-amber-300">0852-5283-4986</a>\nEmail: bestuahsalutetam@gmail.com\nWebsite: salutetambetuah.id\n\nInstagram/TikTok/YouTube: <b>@salutetambetuah</b>' },
     // TENTANG SALUT
     { keys: ['salut','etam','betuah','tentang','apa itu','siapa','profil'], answer: '🏫 <b>Tentang Salut Etam Betuah:</b>\n\n<b>S</b>entra <b>L</b>ayanan <b>U</b>niversitas <b>T</b>erbuka\n\n✅ Berdiri sejak <b>2018</b>\n✅ Melayani ribuan mahasiswa Kaltim\n✅ Bermitra dengan 5 institusi terkemuka\n✅ Lolos audit BDO International\n✅ Layanan lengkap: dari daftar hingga wisuda\n\nMisi: Memudahkan akses pendidikan tinggi berkualitas di Kalimantan Timur 🦅' },
   ];
@@ -2522,7 +2603,7 @@ document.querySelectorAll('.counter').forEach(el => cntObs.observe(el));
       item.keys.forEach(k => { if (t.includes(k)) score += k.length; });
       if (score > bestScore) { best = item; bestScore = score; }
     });
-    return best ? best.answer : 'Maaf, saya belum bisa jawab otomatis. Silakan chat tim kami via <a href="https://wa.me/6282250638289" target="_blank" class="underline text-amber-300">WhatsApp 0822 5063 8289</a>.';
+    return best ? best.answer : 'Maaf, saya belum bisa jawab otomatis. Silakan chat tim kami via <a href="#" onclick="openWAPicker('');return false;" target="_blank" class="underline text-amber-300">WhatsApp 0822 5063 8289</a>.';
   }
   function renderSugs(list) {
     sugEl.innerHTML = '';
