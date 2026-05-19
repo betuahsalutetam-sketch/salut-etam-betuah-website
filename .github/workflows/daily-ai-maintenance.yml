@@ -16,22 +16,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Setup Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: pip install anthropic requests --quiet
-
-      - name: Run daily maintenance script
-        continue-on-error: true
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
-          GOOGLE_PLACE_ID: ${{ secrets.GOOGLE_PLACE_ID }}
-        run: python3 scripts/daily_maintenance.py
-
       - name: Update sitemap lastmod
         run: |
           TODAY=$(date +%Y-%m-%d)
@@ -43,20 +27,25 @@ jobs:
       - name: Update dateModified in HTML files
         run: |
           TODAY=$(date +%Y-%m-%d)
-          for f in index.html kta.html blog/*.html; do
+          for f in index.html kta.html; do
             if [ -f "$f" ]; then
               sed -i "s/\"dateModified\": \"[0-9-]*\"/\"dateModified\": \"$TODAY\"/g" "$f"
               sed -i "s/\"dateModified\":\"[0-9-]*\"/\"dateModified\":\"$TODAY\"/g" "$f"
             fi
           done
-          echo "HTML dateModified updated to $TODAY"
+          for f in blog/*.html; do
+            if [ -f "$f" ]; then
+              sed -i "s/\"dateModified\": \"[0-9-]*\"/\"dateModified\": \"$TODAY\"/g" "$f"
+            fi
+          done
+          echo "dateModified updated to $TODAY"
 
       - name: Update maintenance log
         run: |
-          echo "" >> MAINTENANCE_LOG.md
-          echo "## $(date +%Y-%m-%d) ($(date +%A))" >> MAINTENANCE_LOG.md
-          echo "- Sitemap & dateModified updated" >> MAINTENANCE_LOG.md
-          echo "- GBP script: see log above" >> MAINTENANCE_LOG.md
+          TODAY=$(date +%Y-%m-%d)
+          DAY=$(date +%A)
+          printf "\n## %s (%s)\n- Sitemap lastmod updated\n- HTML dateModified updated\n" "$TODAY" "$DAY" >> MAINTENANCE_LOG.md
+          echo "Log updated"
 
       - name: Commit and push
         run: |
@@ -66,7 +55,7 @@ jobs:
           if ! git diff --staged --quiet; then
             git commit -m "chore: daily update $(date +%Y-%m-%d)"
             git push
-            echo "Changes pushed successfully"
+            echo "Pushed successfully"
           else
-            echo "No changes to commit"
+            echo "Nothing to commit"
           fi
