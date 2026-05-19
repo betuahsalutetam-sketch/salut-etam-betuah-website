@@ -64,4 +64,5 @@ jobs:
             exit 0
           fi
           git commit -m "chore: daily update $(date +%Y-%m-%d)"
-          git push origin HEAD:main --force-with-lease
+          git fetch origin
+          git push origin HEAD:main --force-with-lease=HEAD:origin/main
