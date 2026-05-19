@@ -118,7 +118,7 @@ client = anthropic.Anthropic(api_key=anthropic_key)
 
 def call_ai(prompt, max_tokens=1200):
     resp = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-haiku-4-5-20251001",
         max_tokens=max_tokens,
         messages=[{"role":"user","content":prompt}]
     )
